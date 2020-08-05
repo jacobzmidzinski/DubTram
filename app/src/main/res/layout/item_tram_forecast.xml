@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="tramForecast"
+            type="com.jacobzmidzinski.dubtram.domain.models.TramForecastModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/tramIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/tram_icon"
+                android:src="@drawable/ic_tram"
+                android:tint="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/destinationLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/destination"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/tramIcon"
+                app:layout_constraintTop_toTopOf="@id/tramIcon" />
+
+            <TextView
+                android:id="@+id/destinationValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{tramForecast.destination}"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/destinationLabel"
+                app:layout_constraintStart_toEndOf="@id/destinationLabel" />
+
+            <TextView
+                android:id="@+id/departureLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/departure_in"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/tramIcon"
+                app:layout_constraintTop_toBottomOf="@+id/destinationLabel" />
+
+            <TextView
+                android:id="@+id/departureValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@{tramForecast.dueMinutes}"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/departureLabel"
+                app:layout_constraintStart_toEndOf="@id/departureLabel" />
+
+            <TextView
+                android:id="@+id/minutesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/minutes"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:hideOnDue="@{tramForecast.dueMinutes}"
+                app:layout_constraintBottom_toBottomOf="@id/departureValue"
+                app:layout_constraintStart_toEndOf="@id/departureValue" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

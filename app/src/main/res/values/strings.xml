@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DubTram</string>
+    <string name="button_refresh">Refresh</string>
+    <string name="departure_in">Departure in:</string>
+    <string name="destination">Destination:</string>
+    <string name="tram_icon">Tram icon</string>
+    <string name="minutes">minutes</string>
+</resources>
